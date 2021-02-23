@@ -18,6 +18,12 @@ public class BaseController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
+    public String welcome(){
+        LOG.info("api: HELPER welcome");
+        return "Hello World";
+    }
+
     @GetMapping(path="/api/fib"+"/{fib}" ,produces=MediaType.APPLICATION_JSON_VALUE)
     public Integer getHelpFib(@PathVariable int fib) {
 
