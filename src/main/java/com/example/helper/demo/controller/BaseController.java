@@ -27,7 +27,7 @@ public class BaseController {
     @GetMapping(path="/api/fib"+"/{fib}" ,produces=MediaType.APPLICATION_JSON_VALUE)
     public Integer getHelpFib(@PathVariable int fib) {
 
-        LOG.info("api: HELPER fibonacci started");
+        LOG.info("api: HELPER fibonacci Started");
         if(fib == 0){
             return 0;
         }
@@ -38,7 +38,7 @@ public class BaseController {
         ResponseEntity<Integer> fib_1 = restTemplate.exchange("http://localhost:8080/fib/" + String.valueOf(fib-1), HttpMethod.GET,null , Integer.class);
         ResponseEntity<Integer> fib_2 = restTemplate.exchange("http://localhost:8080/fib/" + String.valueOf(fib-2), HttpMethod.GET,null , Integer.class);
 
-        LOG.info("api: HELPER fibonacci started");
+        LOG.info("api: HELPER fibonacci Ended");
 
         int result = fib_1.getBody() + fib_2.getBody();
 
